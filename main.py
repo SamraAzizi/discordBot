@@ -30,6 +30,10 @@ async def on_message(message):
     if message.author == bot.user:
         return 
 
+    if "shit" in message.content.lower():
+        await message.delete()
+        await message.channel.send(f"@{message.author.mention} dont use that word")
 
+    await bot.process_commands(message)
 
 bot.run(token, log_handler=handler, log_level=logging.DEBUG)
