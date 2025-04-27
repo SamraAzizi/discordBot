@@ -62,11 +62,22 @@ async def remove(ctx):
         await ctx.send(f"{ctx.author.mention} has had the  {secret_role} removed ")
     else:
         await ctx.send("Role does not exists!")
+
+@bot.command()
+async def dm(ctx, *, msg):
+    
+
 @bot.command()
 @commands.has_role(secret_role)
 async def secret(ctx):
     await ctx.send("Welcome to the club!")
-    
+
+
+@bot.error
+async def secret_error(ctx, error):
+    if isinstance(error, commands.MissingRole):
+
+        await ctx.send("You do not have permission to do that!")
 
 
 bot.run(token, log_handler=handler, log_level=logging.DEBUG)
