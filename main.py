@@ -70,8 +70,15 @@ async def dm(ctx, *, msg):
     await ctx.author.send(f"You said {msg}")
 
 @bot.command()
-async def dm(ctx, *, msg):
+async def reply(ctx, *, msg):
     await ctx.reply("This a reply to your message!")
+
+
+@bot.command()
+async def poll(ctx, *, question):
+    embed = discord.Embed(title="New Poll", description=question)
+    poll_message = await ctx.send(embed=embed)
+
 
 @bot.command()
 @commands.has_role(secret_role)
