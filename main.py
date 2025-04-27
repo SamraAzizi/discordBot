@@ -49,6 +49,19 @@ async def assign(ctx):
     role = discord.utils.get(ctx.guild.roles, name=secret_role)
     if role:
         await ctx.author.add_roles(role)
-        await ctx.send(f"{ctx.author.mention} is now assigned to {role}")
+        await ctx.send(f"{ctx.author.mention} is now assigned to {secret_role}")
+    else:
+        await ctx.send("Role does not exists!")
+
+
+@bot.command()
+async def remove(ctx):
+    role = discord.utils.get(ctx.guild.roles, name=secret_role)
+    if role:
+        await ctx.author.add_roles(role)
+        await ctx.send(f"{ctx.author.mention} is now assigned to {secret_role}")
+    else:
+        await ctx.send("Role does not exists!")
+
 
 bot.run(token, log_handler=handler, log_level=logging.DEBUG)
