@@ -15,6 +15,8 @@ intents.members = True
 
 bot = commands.Bot(command_prefix='!', intents=intents)
 
+secret_role = "Gamer"
+
 @bot.event
 async def on_ready():
     print("We are raedy to go in, {bot.user.name}")
@@ -35,5 +37,18 @@ async def on_message(message):
         await message.channel.send(f"@{message.author.mention} dont use that word")
 
     await bot.process_commands(message)
+
+
+@bot.command()
+async def hello(ctx):
+    await ctx.send(f"Hello {ctx.author.mention}!")
+
+
+@bot.command()
+async def assign(ctx):
+    role = discord.utils.get(ctx.guild.roles, name=secret_role)
+    if role:
+        await ctx.author.add_roles(role)
+        await ctx.send(f"{ctx.author.mention} is now assigned to {role}")
 
 bot.run(token, log_handler=handler, log_level=logging.DEBUG)
