@@ -32,3 +32,20 @@ A simple Discord bot built with Python and `discord.py` that can:
 - Users without the "Gamer" role receive a permission error if they try to access secret commands.
 
 ### Logging
+- All bot activity is logged in `discord.log`.
+
+## Setup
+
+### Clone the repository
+```bash
+git clone https://github.com/yourusername/your-bot-repo.git
+cd your-bot-repo
+```
+
+### Install the dependencies
+
+```bash
+pip install discord.py python-dotenv
+```
+Create a .env file
+- Inside the project folder, create a .env file and add your Discord bot token:
