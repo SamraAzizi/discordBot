@@ -78,6 +78,8 @@ async def reply(ctx, *, msg):
 async def poll(ctx, *, question):
     embed = discord.Embed(title="New Poll", description=question)
     poll_message = await ctx.send(embed=embed)
+    await poll_message.add_reaction("👍")
+    await poll_message.add_reaction("👎")
 
 
 @bot.command()
