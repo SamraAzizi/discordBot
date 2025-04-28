@@ -49,3 +49,21 @@ pip install discord.py python-dotenv
 ```
 Create a .env file
 - Inside the project folder, create a .env file and add your Discord bot token:
+
+```bash
+DISCORD_TOKEN=your-bot-token-here
+```
+
+Run the bot
+```bash
+python main.py
+```
+
+### Requirements
+- Python 3.8 or higher
+- `dicord.py`
+- `python-dotenv`
+
+### Notes
+- Make sure the bot has "Manage Roles" permission if you want it to assign and remove roles.
+- Customize the secret_role variable if you want to change the restricted role name.
